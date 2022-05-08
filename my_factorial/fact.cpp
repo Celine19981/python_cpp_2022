@@ -24,5 +24,6 @@ PYBIND11_MODULE(fact, m){
     m.doc() = "Calculate factorial of positif intigers";
     pybind11::class_<Fact>(m, "Fact" )
         .def( pybind11::init< int >() )
-        .def( "print", &Fact::print );
+        .def( "print", &Fact::print )
+        .def( "calculate", &Fact::calculate );
 }
