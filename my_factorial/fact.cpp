@@ -4,8 +4,7 @@
 
 class Fact{
 public:
-    Fact(int n)
-    :_n(n) {}
+    Fact(int n) : _n(n) {}
 
     static int calculate(int n) {
         if(n == 0) return 1;
@@ -21,9 +20,9 @@ private:
 };
 
 PYBIND11_MODULE(fact, m){
-    m.doc() = "Calculate factorial of positif intigers";
+    m.doc() = "Calculate factorial of positif integers";
     pybind11::class_<Fact>(m, "Fact" )
-        .def( pybind11::init< int >() )
-        .def( "print", &Fact::print )
-        .def( "calculate", &Fact::calculate );
+        .def( pybind11::init< int >() , "Constructor for factorial class")
+        .def( "print", &Fact::print, "Print the result of factorial<")
+        .def( "calculate", &Fact::calculate, "Calculate the factorial of the inputed integer");
 }
